@@ -1,8 +1,8 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import ProjectCard from '@/components/ProjectCard';
+import CommunityReferenceCard from '@/components/CommunityReferenceCard';
 import PaperCard from '@/components/PaperCard';
-import { projects, scientificPapers } from '@/lib/data';
+import { communityReferences, scientificPapers } from '@/lib/data';
 
 export default function Home() {
   return (
@@ -24,19 +24,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projects Section */}
+        {/* Community References Section */}
         <section
-          id="projects"
+          id="community-references"
           className="py-20"
           style={{ background: '#181028' }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-              Projects
+            <h2 className="text-3xl font-bold text-white mb-10 text-center">
+              Community References
             </h2>
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              {projects.map(project => (
-                <ProjectCard key={project.id} project={project} />
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+              {communityReferences.map(reference => (
+                <CommunityReferenceCard
+                  key={reference.id}
+                  reference={reference}
+                />
               ))}
             </div>
           </div>

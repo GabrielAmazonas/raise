@@ -4,6 +4,7 @@ import {
   Experience,
   ContactInfo,
   ScientificPaper,
+  CommunityReference,
 } from '@/types';
 
 export const projects: Project[] = [
@@ -128,5 +129,24 @@ export const scientificPapers: ScientificPaper[] = [
       'Large Language Models (LLMs): Deployment, Tokenomics and Sustainability',
     institutions: ['Huawei', 'University of Ottawa'],
     paperUrl: 'https://arxiv.org/abs/2405.17147',
+  },
+];
+
+export const communityReferences: CommunityReference[] = [
+  {
+    id: '1',
+    name: 'Uncle Bob Martin',
+    twitterUrl: 'https://twitter.com/unclebobmartin',
+    postImageUrl: '/uncle-bob-tdd.webp',
+    description: 'Clean Code advocate and Agile development pioneer',
+    idea: 'Test-Driven Development principles that guide robust software architecture and maintainable code practices',
+  },
+  {
+    id: '2',
+    name: 'Kent Beck',
+    twitterUrl: 'https://twitter.com/kentbeck',
+    postImageUrl: '/kent-beck-on-ai.webp',
+    description: 'Creator of Extreme Programming and Test-Driven Development',
+    idea: 'AI-assisted development workflows that enhance productivity while maintaining code quality and developer creativity',
   },
 ];
