@@ -1,0 +1,56 @@
+## Project Rules for AI Agents
+
+These rules are to be followed by any AI agent, including Cursor, when contributing to this project.
+
+### 1. Analyze Before Acting
+
+- **Goal:** Understand the context before making changes.
+- **Action:** Before writing or modifying code, use your available tools to read and understand the relevant files. Pay close attention to the existing code style, variable naming, and architectural patterns.
+
+### 2. Follow Established Conventions
+
+- **Goal:** Maintain a consistent and readable codebase.
+- **Action:** Adhere to the guidelines in `STYLE_GUIDE.md` and the patterns in the existing code. Do not introduce new libraries or frameworks without explicit permission.
+
+### 3. Break Changes into Smaller Functions
+
+- **Goal:** Ensure all changes can be executed and tested incrementally.
+- **Action:** For every change you make, break it down into smaller functions that can be executed on the integrated terminal. Do not assume anything is working without running and making sure it runs as expected.
+
+### 4. Verify Your Changes
+
+- **Goal:** Ensure that all changes are safe and do not introduce regressions.
+- **Action:** After making any changes, run the project's verification scripts as outlined in `CONTRIBUTING.md`. This includes running the type-checker, the test suite, and the linter.
+
+### 5. Write Comprehensive Tests
+
+- **Goal:** Ensure code quality and prevent regressions.
+- **Action:** 
+  - For inter-component logic or isolated functions, always create relevant unit tests
+  - For cross-component features, always create relevant integration tests
+  - For bigger features or when prompted, add relevant e2e tests
+
+### 6. Maintain AI Diary
+
+- **Goal:** Track progress and document issues for future reference.
+- **Action:** 
+  - Every time a change is confirmed successful, add it to the `.ai-diary` (create current date document if needed)
+  - Every time an error occurs, add it to the respective ai-diary document, including:
+    - Root cause analysis
+    - Steps to reproduce the error
+    - Immediately analyze the best approach to address it and implement a fix
+
+### 7. Write Clear and Concise Code
+
+- **Goal:** Produce code that is easy for human developers to understand and maintain.
+- **Action:** Write simple, straightforward code. Add comments only when necessary to explain complex logic.
+
+### 8. Be a Good Collaborator
+
+- **Goal:** Work effectively with human developers.
+- **Action:** If you are unsure about a task or a requirement, ask for clarification. When you have completed a task, provide a clear and concise summary of your work.
+
+### 9. Tech Stack Awareness
+
+- **Goal:** Maintain consistency with the project's technology choices.
+- **Action:** This project uses Next.js 15, TypeScript, Tailwind CSS, Jest, and Cypress. Ensure all contributions align with these technologies and their best practices.

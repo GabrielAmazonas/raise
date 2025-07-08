@@ -1,8 +1,18 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import 'tailwindcss';
 
+/* 8-bit Club Theme Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #181028;
+  --background-dark: #1a002b;
+  --foreground: #fff;
+  --primary: #ff2e9a;
+  --accent: #ffe900;
+  --card-bg: #23123a;
+  --divider: #a020f0;
+  --pixel-font: 'Press Start 2P', 'Courier New', Courier, monospace;
+  --pixel-border: 4px solid var(--primary);
+  --pixel-radius: 0;
 }
 
 @theme inline {
@@ -20,7 +30,161 @@
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, #181028 0%, #1a002b 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--pixel-font);
+  image-rendering: pixelated;
+  min-height: 100vh;
+}
+
+/* Retro grid background overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(90deg, #2d1846 0 2px, transparent 2px 80px),
+    repeating-linear-gradient(0deg, #2d1846 0 2px, transparent 2px 80px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--pixel-font);
+  text-shadow:
+    2px 2px 0 #000,
+    0 0 8px var(--primary);
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+/* Neon yellow for logo and special text */
+.logo,
+.text-accent,
+.logo-text {
+  color: var(--accent) !important;
+  text-shadow:
+    2px 2px 0 #000,
+    0 0 8px var(--accent);
+}
+
+/* Navbar styles */
+nav,
+.navbar,
+.nav {
+  background: transparent;
+  border-bottom: 4px solid var(--primary);
+  font-family: var(--pixel-font);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+nav a,
+.navbar a,
+.nav a {
+  color: var(--accent);
+  padding: 0.5rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--pixel-radius);
+  transition:
+    border 0.2s,
+    color 0.2s,
+    background 0.2s;
+}
+nav a:hover,
+.navbar a:hover,
+.nav a:hover,
+nav a.active {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  background: #2d1846;
+}
+
+/* Section dividers */
+.divider,
+.section-divider {
+  border: none;
+  border-top: 4px solid var(--divider);
+  margin: 2rem 0;
+}
+
+/* Cards and buttons */
+.card,
+.bg-white,
+.shadow-md,
+.shadow-sm,
+.shadow-lg {
+  background: var(--card-bg) !important;
+  border: var(--pixel-border) !important;
+  border-radius: var(--pixel-radius) !important;
+  box-shadow:
+    0 0 0 4px #000,
+    4px 4px 0 0 var(--primary) !important;
+  color: var(--foreground) !important;
+}
+button,
+.btn,
+.rounded-lg,
+.rounded,
+.rounded-md,
+.rounded-full {
+  border: var(--pixel-border) !important;
+  border-radius: var(--pixel-radius) !important;
+  background: var(--primary);
+  color: var(--accent);
+  font-family: var(--pixel-font);
+  box-shadow:
+    0 0 0 4px #000,
+    4px 4px 0 0 var(--accent);
+  text-shadow: 2px 2px 0 #000;
+  transition: none !important;
+  text-transform: uppercase;
+}
+button:hover,
+.btn:hover {
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow:
+    0 0 0 4px #000,
+    4px 4px 0 0 var(--primary);
+}
+
+/* Project titles and important text */
+.text-xl.font-semibold,
+.project-title {
+  color: var(--accent) !important;
+  text-shadow:
+    2px 2px 0 #000,
+    0 0 8px var(--accent);
+}
+
+/* General text overrides */
+.text-gray-900,
+.text-gray-700,
+.text-gray-600,
+.text-gray-400,
+.text-gray-500 {
+  color: var(--foreground) !important;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 2px dashed var(--primary);
+  font-family: var(--pixel-font);
+}
+a:hover {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+img {
+  image-rendering: pixelated;
 }
