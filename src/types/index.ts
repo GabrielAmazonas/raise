@@ -41,3 +41,12 @@ export interface ScientificPaper {
   authors?: string[];
   abstract?: string;
 }
+
+export interface CommunityReference {
+  id: string;
+  name: string;
+  twitterUrl: string;
+  postImageUrl: string;
+  description: string;
+  idea: string;
+}
