@@ -6,7 +6,7 @@ import Header from '../components/Header';
 describe('Header', () => {
   it('renders all navigation links (desktop)', () => {
     render(<Header />);
-    ['About', 'Experience', 'Projects', 'Skills', 'Contact'].forEach(text => {
+    ['Project', 'Research', 'Community', 'Contact'].forEach(text => {
       expect(screen.getAllByText(text)[0]).toBeInTheDocument();
     });
   });
