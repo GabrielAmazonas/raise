@@ -9,14 +9,24 @@ jest.mock('next/image', () => {
     src,
     alt,
     fill,
+    className,
     ...props
   }: {
     src: string;
     alt: string;
     fill?: boolean;
+    className?: string;
     [key: string]: unknown;
   }) {
-    return <img src={src} alt={alt} data-fill={fill} {...props} />;
+    return (
+      <img
+        src={src}
+        alt={alt}
+        data-fill={fill}
+        className={className}
+        {...props}
+      />
+    );
   };
 });
 
@@ -102,5 +112,20 @@ describe('CommunityReferenceCard', () => {
       'Test description for the person'
     );
     expect(descriptionElement).toHaveClass('text-gray-600', 'mb-4', 'text-sm');
+  });
+
+  it('applies responsive height classes to image container', () => {
+    render(<CommunityReferenceCard reference={mockReference} />);
+
+    const imageContainer =
+      screen.getByAltText('Test Person post').parentElement;
+    expect(imageContainer).toHaveClass('h-48', 'sm:h-56', 'md:h-64');
+  });
+
+  it('applies responsive object-fit classes to image', () => {
+    render(<CommunityReferenceCard reference={mockReference} />);
+
+    const image = screen.getByAltText('Test Person post');
+    expect(image).toHaveClass('object-contain', 'sm:object-cover');
   });
 });
