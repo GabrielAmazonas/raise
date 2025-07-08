@@ -229,6 +229,155 @@ flowchart TD
 - Workflow optimization based on multi-tool performance results
 - Team knowledge sharing and best practices evolution with Gemini CLI documentation
 
+## AI-First Development Configuration
+
+RAISE implements a comprehensive AI-first development environment with specialized configurations for each AI tool in our stack.
+
+### .cursor/rules - Project-Specific AI Rules
+
+The project includes detailed AI agent rules in `.cursor/rules/project/project_rules.mdc` that govern how Claude 4 Sonnet operates within the Cursor IDE:
+
+#### Core AI Development Principles
+
+1. **Analyze Before Acting**: AI agents must read and understand existing code patterns before making changes
+2. **Follow Established Conventions**: Strict adherence to `STYLE_GUIDE.md` and existing architectural patterns
+3. **Incremental Development**: Break changes into smaller, testable functions that can be executed in the integrated terminal
+4. **Comprehensive Verification**: Run type-checker, test suite, and linter after every change
+5. **Test-Driven Development**:
+   - Unit tests for isolated functions and inter-component logic
+   - Integration tests for cross-component features
+   - E2E tests for larger features or when prompted
+
+#### AI Diary Integration
+
+The Cursor rules enforce systematic documentation in `.ai-diary/`:
+
+- **Success Logging**: Document successful changes with context and verification steps
+- **Error Analysis**: Include root cause analysis, reproduction steps, and immediate fix implementation
+
+### .github/copilot-instructions - Code Review AI
+
+GitHub Copilot is configured via `.github/copilot-instructions.md` to serve as our code review and quality assurance AI:
+
+#### Copilot's Role in Quality Assurance
+
+- **Context Analysis**: Analyze current file and surrounding codebase before generating suggestions
+- **Style Guide Compliance**: Enforce patterns from `STYLE_GUIDE.md` and `TECHNOLOGY_STACK.md`
+- **Test Generation**: Create corresponding tests following existing patterns
+- **Documentation Standards**: Generate JSDoc comments and update Markdown documentation
+
+#### Technology Stack Enforcement
+
+Copilot ensures all generated code uses approved technologies:
+
+- Next.js 15 with App Router
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Jest and Cypress for testing
+
+### CONTRIBUTING.md - AI Agent Guidelines
+
+The project's `CONTRIBUTING.md` provides comprehensive guidelines specifically designed for AI agents:
+
+#### AI-First Development Workflow
+
+1. **Task Analysis**: Break user requests into clear objectives
+2. **Context Gathering**: Use available tools to understand current implementation
+3. **Plan Formulation**: Create step-by-step plans for significant changes
+4. **Implementation**: Clean, efficient, well-documented code changes
+5. **Verification Pipeline**: Comprehensive testing and quality checks
+6. **Documentation**: Update AI diary and commit with clear messages
+
+#### Multi-Tool Verification Commands
+
+```bash
+# Type checking
+npx tsc --noEmit --project tsconfig.test.json
+
+# Test execution
+npm test
+
+# Code quality
+npm run lint
+npm run format:check
+```
+
+### Unit Tests and Pre-Commit Strategy
+
+#### Jest Configuration and Coverage Standards
+
+Our Jest setup (`jest.config.mjs`) enforces rigorous testing standards:
+
+```javascript
+coverageThreshold: {
+  global: {
+    branches: 80,
+    functions: 80,
+    lines: 80,
+    statements: 80,
+  },
+}
+```
+
+#### Testing Framework Architecture
+
+- **Unit Tests**: `src/__tests__/` with Jest + React Testing Library
+- **Integration Tests**: Cross-component testing in same directory structure
+- **E2E Tests**: `cypress/e2e/` with comprehensive user workflow coverage
+- **Component Tests**: Cypress component testing for isolated UI testing
+
+#### Pre-Commit Automation Pipeline
+
+**Husky + Lint-Staged Configuration**:
+
+`.husky/pre-commit` runs lint-staged automatically on every commit.
+
+`.lintstagedrc.json` defines our pre-commit quality pipeline:
+
+```json
+{
+  "*.{js,jsx,ts,tsx}": [
+    "prettier --write",
+    "eslint --fix",
+    "jest --bail --findRelatedTests"
+  ],
+  "*.{json,md,yml,yaml}": ["prettier --write"]
+}
+```
+
+#### Pre-Commit Quality Gates
+
+1. **Code Formatting**: Prettier auto-formats all code files
+2. **Linting**: ESLint fixes issues and enforces coding standards
+3. **Related Testing**: Jest runs tests for files being committed
+4. **Documentation**: Prettier formats configuration and documentation files
+
+#### AI Development Scripts
+
+```bash
+# Development with AI assistance
+npm run dev              # Next.js with Turbopack for fast iteration
+
+# Testing pipeline
+npm test                 # Unit and integration tests
+npm run test:watch       # Watch mode for TDD
+npm run test:coverage    # Coverage reporting
+npm run test:e2e         # Cypress E2E tests
+npm run test:e2e:open    # Interactive Cypress testing
+
+# Code quality
+npm run lint             # ESLint checking
+npm run lint:fix         # Auto-fix linting issues
+npm run format           # Prettier formatting
+npm run format:check     # Format validation
+```
+
+#### Multi-LLM Testing Strategy
+
+- **Claude 4 Sonnet (Cursor)**: Primary test implementation and TDD cycles
+- **GPT-4o (GitHub Copilot)**: Code review and test quality assurance
+- **Gemini 2.5 Pro**: E2E test architecture and deployment testing
+
 ## Getting Started
 
 First, run the development server:
@@ -240,3 +389,11 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+### AI-First Development Workflow
+
+1. **Start Development**: Use Cursor with Claude 4 Sonnet for implementation
+2. **Code Review**: GitHub Copilot provides real-time quality assurance
+3. **Testing**: Jest runs automatically via pre-commit hooks
+4. **Documentation**: AI diary tracks all changes and decisions
+5. **Deployment**: Gemini CLI handles infrastructure and deployment
