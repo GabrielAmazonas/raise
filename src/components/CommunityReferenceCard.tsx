@@ -11,12 +11,12 @@ export default function CommunityReferenceCard({
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Post Image */}
-      <div className="h-64 bg-gray-200 flex items-center justify-center relative">
+      <div className="h-48 sm:h-56 md:h-64 bg-gray-200 flex items-center justify-center relative">
         <Image
           src={reference.postImageUrl}
           alt={`${reference.name} post`}
           fill
-          className="object-cover"
+          className="object-contain sm:object-cover"
         />
       </div>
 
