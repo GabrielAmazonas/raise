@@ -14,13 +14,17 @@ export default function Hero() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="#projects"
+              href="https://github.com/GabrielAmazonas/raise"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
             >
-              Project Implementations
+              Project Implementation
             </Link>
             <Link
-              href="#contact"
+              href="https://www.linkedin.com/in/gabriel-amazonas"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
             >
               Get In Touch

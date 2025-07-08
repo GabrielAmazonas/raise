@@ -30,31 +30,27 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="nav hidden lg:flex space-x-4 xl:space-x-6">
             <Link
-              href="#about"
+              href="#"
               className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
             >
-              About
+              Project
             </Link>
             <Link
-              href="#experience"
+              href="#research"
               className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
             >
-              Experience
+              Research
             </Link>
             <Link
-              href="#projects"
+              href="#community"
               className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
             >
-              Projects
+              Community
             </Link>
             <Link
-              href="#skills"
-              className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
-            >
-              Skills
-            </Link>
-            <Link
-              href="#contact"
+              href="https://www.linkedin.com/in/gabriel-amazonas"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
             >
               Contact
@@ -64,19 +60,27 @@ export default function Header() {
           {/* Tablet Navigation - Compact */}
           <nav className="hidden md:flex lg:hidden space-x-2">
             <Link
-              href="#about"
+              href="#"
               className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
             >
-              About
+              Project
             </Link>
             <Link
-              href="#projects"
+              href="#research"
               className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
             >
-              Projects
+              Research
             </Link>
             <Link
-              href="#contact"
+              href="#community"
+              className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
+            >
+              Community
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/gabriel-amazonas"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
             >
               Contact
@@ -121,35 +125,30 @@ export default function Header() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <Link
-                href="#about"
+                href="#"
                 className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={closeMenu}
               >
-                About
+                Project
               </Link>
               <Link
-                href="#experience"
+                href="#research"
                 className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={closeMenu}
               >
-                Experience
+                Research
               </Link>
               <Link
-                href="#projects"
+                href="#community"
                 className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={closeMenu}
               >
-                Projects
+                Community
               </Link>
               <Link
-                href="#skills"
-                className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                onClick={closeMenu}
-              >
-                Skills
-              </Link>
-              <Link
-                href="#contact"
+                href="https://www.linkedin.com/in/gabriel-amazonas"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={closeMenu}
               >
