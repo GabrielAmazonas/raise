@@ -51,8 +51,8 @@ RAISE bridges the gap between academic research and practical software engineeri
 ### LLM Models
 
 - **OpenAI GPT-4o** - Strategic ideation, business refinement, and cross-team communication
-- **Anthropic Claude-4-Sonnet** - Precision code generation, refactoring, and development workflows
-- **Google Gemini 2.5 Pro** - Quality assurance architecture, deployment orchestration, and infrastructure optimization
+- **Anthropic Claude-4-Sonnet** - Code generation, refactoring, and development workflows
+- **Google Gemini 2.5 Pro** - Research Assistant, Up-to-date tool documents, Recent innovation in Architecture and Guidelines insights.
 
 ### Development Tools
 
@@ -60,7 +60,7 @@ RAISE bridges the gap between academic research and practical software engineeri
 - **ChatGPT** - Interactive development assistance and strategic ideation
 - **GitHub** - Version control and collaboration
   - **GitHub Copilot** - Real-time code review and quality assurance
-- **Gemini CLI** - Command-line AI integration and deployment automation
+- **Gemini CLI** - Command-line AI integration 
 
 ### Framework & Technologies
 
@@ -76,7 +76,7 @@ This is a [Next.js](https://nextjs.org) project built with modern web technologi
 - **GPT-4o (via ChatGPT)**: Employed for high-level marketing and business ideation, helping to define the project's vision and strategic direction.
 - **Claude 4 Sonnet (via Cursor)**: Utilized as the primary coding assistant within the Cursor IDE, focusing on writing, refactoring, and debugging application code.
 - **GPT-4o (via GitHub Copilot)**: Integrated for real-time code review, quality assurance, and maintaining coding standards throughout the development process.
-- **Gemini 2.5 Pro (via Gemini CLI)**: Leveraged for architectural planning, infrastructure setup, and deployment strategies, ensuring a robust and scalable foundation.
+- **Gemini 2.5 Pro (via Gemini CLI)**: Leveraged for architectural planning, infrastructure setup, and deployment strategies, ensuring a robust and scalable foundation with AI-First web research.
 
 ## RAISE Workflow: Multi-LLM Development Process
 
@@ -170,13 +170,6 @@ flowchart TD
 3. **Code Review**: GitHub Copilot-GPT-4o for quality assurance and best practices
 4. **Testing & Validation**: Multi-LLM approach for comprehensive test generation
 5. **Documentation & Deployment**: Gemini CLI-2.5 Pro for docs and infrastructure
-
-**Research-Informed Human Oversight with AI Assistance**:
-
-- Code review enhanced by researching latest security vulnerabilities and best practices not in LLM training data
-- Architectural decisions informed by investigating emerging design patterns and framework innovations
-- Integration testing validation through research into cutting-edge testing methodologies and tools
-- Performance monitoring using newly discovered optimization techniques and workflow improvements
 
 ### 3. **AI-First QA Pipeline** ✅
 
@@ -367,7 +360,7 @@ coverageThreshold: {
 3. **Related Testing**: Jest runs tests for files being committed
 4. **Documentation**: Prettier formats configuration and documentation files
 
-#### AI Development Scripts
+#### Development Scripts
 
 ```bash
 # Development with AI assistance
