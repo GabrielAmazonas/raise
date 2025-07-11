@@ -138,12 +138,9 @@ describe('Metadata', () => {
 
   it('has correct social media image configuration', () => {
     // Test that both Open Graph and Twitter use the same image
-    const ogImages = metadata.openGraph?.images;
-    if (Array.isArray(ogImages) && ogImages.length > 0) {
-      const firstImage = ogImages[0];
-      if (typeof firstImage === 'object' && 'url' in firstImage) {
-        expect(firstImage.url).toBe('/raise-logo.webp');
-      }
+    const ogImageUrl = validateImageUrl(metadata.openGraph?.images);
+    if (ogImageUrl) {
+      expect(ogImageUrl).toBe('/raise-logo.webp');
     }
     expect(metadata.twitter?.images).toEqual(['/raise-logo.webp']);
   });
