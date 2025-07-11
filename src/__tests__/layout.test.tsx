@@ -22,6 +22,21 @@ jest.mock('@vercel/analytics/next', () => ({
   Analytics: () => null,
 }));
 
+// Helper function to validate and extract image URL from Open Graph images
+const validateImageUrl = (images: unknown): string | null => {
+  if (Array.isArray(images) && images.length > 0) {
+    const firstImage = images[0];
+    if (
+      typeof firstImage === 'object' &&
+      firstImage !== null &&
+      'url' in firstImage
+    ) {
+      return firstImage.url as string;
+    }
+  }
+  return null;
+};
+
 describe('RootLayout', () => {
   it('renders children correctly', () => {
     const testContent = 'Test Content';
