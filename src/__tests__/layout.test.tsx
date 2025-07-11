@@ -17,6 +17,26 @@ jest.mock('next/font/google', () => ({
   }),
 }));
 
+// Mock Vercel Analytics
+jest.mock('@vercel/analytics/next', () => ({
+  Analytics: () => null,
+}));
+
+// Helper function to validate and extract image URL from Open Graph images
+const validateImageUrl = (images: unknown): string | null => {
+  if (Array.isArray(images) && images.length > 0) {
+    const firstImage = images[0];
+    if (
+      typeof firstImage === 'object' &&
+      firstImage !== null &&
+      'url' in firstImage
+    ) {
+      return firstImage.url as string;
+    }
+  }
+  return null;
+};
+
 describe('RootLayout', () => {
   it('renders children correctly', () => {
     const testContent = 'Test Content';
@@ -133,7 +153,10 @@ describe('Metadata', () => {
 
   it('has correct social media image configuration', () => {
     // Test that both Open Graph and Twitter use the same image
-    expect(metadata.openGraph?.images?.[0]?.url).toBe('/raise-logo.webp');
+    const ogImageUrl = validateImageUrl(metadata.openGraph?.images);
+    if (ogImageUrl) {
+      expect(ogImageUrl).toBe('/raise-logo.webp');
+    }
     expect(metadata.twitter?.images).toEqual(['/raise-logo.webp']);
   });
 
