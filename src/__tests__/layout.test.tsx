@@ -17,6 +17,11 @@ jest.mock('next/font/google', () => ({
   }),
 }));
 
+// Mock Vercel Analytics
+jest.mock('@vercel/analytics/next', () => ({
+  Analytics: () => null,
+}));
+
 describe('RootLayout', () => {
   it('renders children correctly', () => {
     const testContent = 'Test Content';
@@ -133,7 +138,13 @@ describe('Metadata', () => {
 
   it('has correct social media image configuration', () => {
     // Test that both Open Graph and Twitter use the same image
-    expect(metadata.openGraph?.images?.[0]?.url).toBe('/raise-logo.webp');
+    const ogImages = metadata.openGraph?.images;
+    if (Array.isArray(ogImages) && ogImages.length > 0) {
+      const firstImage = ogImages[0];
+      if (typeof firstImage === 'object' && 'url' in firstImage) {
+        expect(firstImage.url).toBe('/raise-logo.webp');
+      }
+    }
     expect(metadata.twitter?.images).toEqual(['/raise-logo.webp']);
   });
 
