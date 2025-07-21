@@ -84,7 +84,7 @@ This is a [Next.js](https://nextjs.org) project built with modern web technologi
 
 ```mermaid
 flowchart TD
-    A[👤💬 Human: Research-Driven Requirements & Scope\nChatGPT - Business Ideation] --> DaC[📄 DaC: AI-First Document as Code (PRD, RFC, ADR)\nModel 1: Draft, Model 2: Review/Counterpoints]
+    A[👤💬 Human: Research-Driven Requirements & Scope\nChatGPT - Business Ideation] --> DaC[📄 DaC: AI-First Document as Code \\(PRD, RFC, ADR\\)\nModel 1: Draft, Model 2: Review/Counterpoints]
     DaC --> B{🎯 Research-Informed Iteration and Refinement}
     B --> C[👤🔧 Human: Research AI-Tools and AI-First QA process\nMulti-LLM Stack Planning]
     C --> D{🤖 Choose LLM Stack}
