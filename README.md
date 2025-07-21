@@ -84,9 +84,9 @@ This is a [Next.js](https://nextjs.org) project built with modern web technologi
 
 ```mermaid
 flowchart TD
-    A[👤💬 Human: Research-Driven Requirements & Scope<br/>ChatGPT - Business Ideation] --> DaC[📄 DaC: AI-First Document as Code (PRD, RFC, ADR)<br/>Model 1: Draft, Model 2: Review/Counterpoints]
+    A[👤💬 Human: Research-Driven Requirements & Scope\nChatGPT - Business Ideation] --> DaC[📄 DaC: AI-First Document as Code (PRD, RFC, ADR)\nModel 1: Draft, Model 2: Review/Counterpoints]
     DaC --> B{🎯 Research-Informed Iteration and Refinement}
-    B --> C[👤🔧 Human: Research AI-Tools and AI-First QA process<br/>Multi-LLM Stack Planning]
+    B --> C[👤🔧 Human: Research AI-Tools and AI-First QA process\nMulti-LLM Stack Planning]
     C --> D{🤖 Choose LLM Stack}
 
     D -->|Business & Market Ideas| E[ChatGPT-GPT-4o: Strategy & Vision]
@@ -98,11 +98,11 @@ flowchart TD
     G --> H
 
     H --> I[🤖 Cursor + Claude-4-Sonnet: Code Implementation]
-    I --> J[👤🔍 Human: Research-Enhanced Code Review<br/>GitHub Copilot - GPT-4o Assistance]
+    I --> J[👤🔍 Human: Research-Enhanced Code Review\nGitHub Copilot - GPT-4o Assistance]
     J --> K{Quality Check}
 
     K -->|Needs refinement| L[🤖 Claude-4-Sonnet: Code Analysis & Improvements]
-    L --> M[👤🏗️ Human: Research-Informed Architectural Decisions<br/>Cursor - Design Patterns]
+    L --> M[👤🏗️ Human: Research-Informed Architectural Decisions\nCursor - Design Patterns]
     M --> N[🤖 GPT-4o: Generate Tests & Validation]
 
     K -->|Approved| O[✅ AI-First QA Pipeline]
@@ -110,19 +110,19 @@ flowchart TD
 
     O --> P[🤖 Cross-validate between LLM Stack]
     P --> Q[🤖 Automated Test Execution]
-    Q --> R[👤✅ Human Validation Points<br/>Multi-Tool Quality Gates]
+    Q --> R[👤✅ Human Validation Points\nMulti-Tool Quality Gates]
 
     R --> S{Final Validation}
-    S -->|Pass| T[👤🚀 Human: Integration Approval<br/>Gemini CLI - Deployment Ready]
-    S -->|Fail| U[👤🔬 Human: Research-Based Root Cause Analysis<br/>ChatGPT - Problem Solving]
+    S -->|Pass| T[👤🚀 Human: Integration Approval\nGemini CLI - Deployment Ready]
+    S -->|Fail| U[👤🔬 Human: Research-Based Root Cause Analysis\nChatGPT - Problem Solving]
 
     U --> V[🤖 AI Stack: Error Analysis & Fix Suggestions]
     V --> H
 
-    T --> W[🚀 Deploy & Monitor<br/>Gemini CLI - Production]
+    T --> W[🚀 Deploy & Monitor\nGemini CLI - Production]
     W --> X[📊 Token Cost Analysis]
-    X --> Y[👤📈 Human: Research-Driven Workflow Optimization<br/>Cross-LLM Performance Review]
-    Y --> Z[📚 Knowledge Sharing & Learning<br/>Gemini CLI - Documentation]
+    X --> Y[👤📈 Human: Research-Driven Workflow Optimization\nCross-LLM Performance Review]
+    Y --> Z[📚 Knowledge Sharing & Learning\nGemini CLI - Documentation]
 
     style A fill:#e1f5fe
     style C fill:#e1f5fe
