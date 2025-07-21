@@ -84,7 +84,8 @@ This is a [Next.js](https://nextjs.org) project built with modern web technologi
 
 ```mermaid
 flowchart TD
-    A[👤💬 Human: Research-Driven Requirements & Scope<br/>ChatGPT - Business Ideation] --> B{🎯 Research-Informed Iteration and Refinement}
+    A[👤💬 Human: Research-Driven Requirements & Scope<br/>ChatGPT - Business Ideation] --> DaC[📄 DaC: AI-First Document as Code (PRD, RFC, ADR)<br/>Model 1: Draft, Model 2: Review/Counterpoints]
+    DaC --> B{🎯 Research-Informed Iteration and Refinement}
     B --> C[👤🔧 Human: Research AI-Tools and AI-First QA process<br/>Multi-LLM Stack Planning]
     C --> D{🤖 Choose LLM Stack}
 
@@ -149,6 +150,19 @@ flowchart TD
 - 🤖 **Orange nodes**: AI-driven tasks with research-informed human oversight
 - 🔄 **Process nodes**: Iterative cycles with continuous feedback and knowledge discovery
 - 💬🔧🔍🏗️✅🚀🔬📈 **AI Tool Icons**: Specific AI assistants used in research-enhanced human tasks
+
+### Document as Code (DaC): AI-First Documentation Workflow
+
+**Document as Code (DaC)** is a foundational pillar in RAISE, ensuring that all critical engineering documents—**PRD (Product Requirements Document), RFC (Request for Comments), and ADR (Architecture Decision Record)**—are designed and maintained as AI-first artifacts.
+
+- **AI-First Design**: Each document type is structured for seamless AI collaboration and automation.
+- **Dual-Model Workflow**:
+  - **Model 1**: Translates business hypotheses and requirements into the initial structured document (PRD, RFC, or ADR).
+  - **Model 2**: Reviews the document, adds counterpoints, and ensures completeness and critical analysis.
+- **Continuous Improvement**: Documents are iteratively refined through human-AI feedback loops, ensuring clarity, rigor, and alignment with evolving project goals.
+- **Traceability**: All document changes and reviews are logged for transparency and future learning.
+
+This approach ensures that documentation is not only up-to-date and high quality, but also leverages the strengths of multiple AI models for both creation and critical review, driving better engineering outcomes.
 
 ### 1. **Research-Driven Iteration and Refinement** 🎯
 
