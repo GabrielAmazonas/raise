@@ -25,7 +25,7 @@ export default function Hero() {
               href="https://github.com/gabrielamazonas/raise"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
+              className="border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
               aria-label="Implementation"
             >
               <svg
