@@ -36,13 +36,19 @@ export default function Header() {
               Project
             </Link>
             <Link
-              href="#research"
+              href="#built-with-raise"
+              className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
+            >
+              Solutions
+            </Link>
+            <Link
+              href="#scientific-inspiration"
               className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
             >
               Research
             </Link>
             <Link
-              href="#community"
+              href="#community-references"
               className="text-accent px-2 py-1 rounded-md text-xs sm:text-sm font-medium transition-colors"
             >
               Community
@@ -66,13 +72,19 @@ export default function Header() {
               Project
             </Link>
             <Link
-              href="#research"
+              href="#built-with-raise"
+              className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
+            >
+              Solutions
+            </Link>
+            <Link
+              href="#scientific-inspiration"
               className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
             >
               Research
             </Link>
             <Link
-              href="#community"
+              href="#community-references"
               className="text-gray-700 hover:text-gray-900 px-1 py-1 rounded-md text-xs font-medium transition-colors"
             >
               Community
@@ -132,14 +144,21 @@ export default function Header() {
                 Project
               </Link>
               <Link
-                href="#research"
+                href="#built-with-raise"
+                className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                onClick={closeMenu}
+              >
+                Solutions
+              </Link>
+              <Link
+                href="#scientific-inspiration"
                 className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={closeMenu}
               >
                 Research
               </Link>
               <Link
-                href="#community"
+                href="#community-references"
                 className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 onClick={closeMenu}
               >

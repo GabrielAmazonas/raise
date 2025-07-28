@@ -50,3 +50,11 @@ export interface CommunityReference {
   description: string;
   idea: string;
 }
+
+export interface BuiltWithRaiseProject {
+  id: string;
+  title: string;
+  projectUrl: string;
+  description: string;
+  problemSolved: string;
+}

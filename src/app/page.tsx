@@ -2,7 +2,12 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import CommunityReferenceCard from '@/components/CommunityReferenceCard';
 import PaperCard from '@/components/PaperCard';
-import { communityReferences, scientificPapers } from '@/lib/data';
+import BuiltWithRaiseCard from '@/components/BuiltWithRaiseCard';
+import {
+  communityReferences,
+  scientificPapers,
+  builtWithRaiseProjects,
+} from '@/lib/data';
 
 export default function Home() {
   return (
@@ -10,6 +15,24 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        {/* Built with Raise Section */}
+        <section
+          id="built-with-raise"
+          className="py-20"
+          style={{ background: '#181028' }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-white mb-10 text-center">
+              Built with Raise
+            </h2>
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+              {builtWithRaiseProjects.map(project => (
+                <BuiltWithRaiseCard key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Scientific Inspiration Section */}
         <section id="scientific-inspiration" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
