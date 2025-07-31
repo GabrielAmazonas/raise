@@ -119,7 +119,8 @@ nav a.active {
 .bg-white,
 .shadow-md,
 .shadow-sm,
-.shadow-lg {
+.shadow-lg,
+.bg-card-bg {
   background: var(--card-bg) !important;
   border: var(--pixel-border) !important;
   border-radius: var(--pixel-radius) !important;
@@ -145,6 +146,7 @@ button,
   text-shadow: 2px 2px 0 #000;
   transition: none !important;
   text-transform: uppercase;
+  cursor: pointer;
 }
 button:hover,
 .btn:hover {
@@ -153,6 +155,15 @@ button:hover,
   box-shadow:
     0 0 0 4px #000,
     4px 4px 0 0 var(--primary);
+}
+
+/* Specific hover styles for modal buttons */
+.hover\:bg-black:hover {
+  background: #000 !important;
+}
+
+.hover\:text-accent:hover {
+  color: var(--accent) !important;
 }
 
 /* Project titles and important text */
@@ -179,10 +190,28 @@ a {
   text-decoration: none;
   border-bottom: 2px dashed var(--primary);
   font-family: var(--pixel-font);
+  cursor: pointer;
 }
 a:hover {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
+}
+
+/* Modal specific styles */
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-foreground {
+  color: var(--foreground) !important;
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
+}
+
+.border-accent {
+  border-color: var(--accent) !important;
 }
 
 img {

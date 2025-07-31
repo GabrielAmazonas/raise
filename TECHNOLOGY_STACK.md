@@ -2,6 +2,19 @@
 
 This document provides an overview of the technologies and libraries used in this project.
 
+## 0. Building Stack
+
+- **nvm** A node.js version management utility (v0.39.3)
+- **nodejs** Using node v20.19.4 (npm v10.8.2), installed from nvm
+
+clone this repo, install nvm and:
+
+```
+    nvm install 20
+    nvm use 20
+    npm i
+```
+
 ## 1. Core Frameworks and Libraries
 
 - **Next.js:** A React framework for building server-side rendered and statically generated web applications.

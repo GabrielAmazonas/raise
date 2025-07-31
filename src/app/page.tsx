@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import CommunityReferenceCard from '@/components/CommunityReferenceCard';
 import PaperCard from '@/components/PaperCard';
 import BuiltWithRaiseCard from '@/components/BuiltWithRaiseCard';
+import SponsorModal from '@/components/SponsorModal';
 import {
   communityReferences,
   scientificPapers,
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
+      <SponsorModal />
       <main>
         <Hero />
         {/* Built with Raise Section */}
