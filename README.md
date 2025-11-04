@@ -80,7 +80,7 @@ This is a [Next.js](https://nextjs.org) project built with modern web technologi
 
 ## RAISE Workflow: Multi-LLM Development Process
 
-### Engineering Workflow Diagram
+### Engineering Workflow Diagram:
 
 ```mermaid
 flowchart TD
