@@ -214,6 +214,7 @@ a:hover {
   border-color: var(--accent) !important;
 }
 
-img {
+/* Only apply pixelation to actual pixel art */
+.pixelated {
   image-rendering: pixelated;
 }
