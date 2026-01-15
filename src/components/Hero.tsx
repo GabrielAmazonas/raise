@@ -40,43 +40,6 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-
-        {/* Tech Stack Preview */}
-        <div className="mt-16">
-          <h2 className="text-lg font-semibold text-gray-400 mb-6 text-center">
-            LLM Models
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              'OpenAI - GPT-4o',
-              'Anthropic - claude-4-sonnet',
-              'Google - Gemini 2.5 Pro',
-            ].map(tech => (
-              <span
-                key={tech}
-                className="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 shadow-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-        {/* Tools */}
-        <div className="mt-16">
-          <h2 className="text-lg font-semibold text-gray-400 mb-6 text-center">
-            Tools
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {['ChatGPT', 'Cursor', 'GitHub', 'Gemini CLI'].map(tech => (
-              <span
-                key={tech}
-                className="bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-700 shadow-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

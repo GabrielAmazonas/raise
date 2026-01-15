@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import MacroWorkflow from '@/components/MacroWorkflow';
 import CommunityReferenceCard from '@/components/CommunityReferenceCard';
 import PaperCard from '@/components/PaperCard';
 import BuiltWithRaiseCard from '@/components/BuiltWithRaiseCard';
@@ -17,6 +18,7 @@ export default function Home() {
       <SponsorModal />
       <main>
         <Hero />
+        <MacroWorkflow />
         {/* Built with Raise Section */}
         <section
           id="built-with-raise"
