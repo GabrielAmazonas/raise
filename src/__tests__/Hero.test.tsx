@@ -11,18 +11,9 @@ describe('Hero', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders LLM models and tools', () => {
+  it('renders call-to-action links', () => {
     render(<Hero />);
-    [
-      'OpenAI - GPT-4o',
-      'Anthropic - claude-4-sonnet',
-      'Google - Gemini 2.5 Pro',
-      'ChatGPT',
-      'Cursor',
-      'GitHub',
-      'Gemini CLI',
-    ].forEach(item => {
-      expect(screen.getByText(item)).toBeInTheDocument();
-    });
+    expect(screen.getByText('Get In Touch')).toBeInTheDocument();
+    expect(screen.getByText('Implementation')).toBeInTheDocument();
   });
 });
