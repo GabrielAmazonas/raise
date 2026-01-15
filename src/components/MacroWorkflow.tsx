@@ -199,7 +199,7 @@ export default function MacroWorkflow() {
 
                   {/* Description */}
                   <p
-                    className="text-[10px] text-center leading-relaxed flex-grow"
+                    className="text-[12px] text-center leading-relaxed flex-grow"
                     style={{ color: 'var(--foreground)', opacity: 0.9 }}
                   >
                     {step.description}
@@ -227,13 +227,13 @@ export default function MacroWorkflow() {
                     <div className="space-y-3">
                       <div>
                         <div
-                          className="text-[10px] font-bold mb-1 flex items-center gap-2"
+                          className="text-[12px] font-bold mb-1 flex items-center gap-2"
                           style={{ color: 'var(--accent)' }}
                         >
                           <span>👤</span> HUMAN ROLE
                         </div>
                         <p
-                          className="text-[10px]"
+                          className="text-[12px]"
                           style={{ color: 'var(--foreground)', opacity: 0.8 }}
                         >
                           {step.humanRole}
@@ -242,13 +242,13 @@ export default function MacroWorkflow() {
 
                       <div>
                         <div
-                          className="text-[10px] font-bold mb-1 flex items-center gap-2"
+                          className="text-[12px] font-bold mb-1 flex items-center gap-2"
                           style={{ color: 'var(--primary)' }}
                         >
                           <span>🤖</span> AI ROLE
                         </div>
                         <p
-                          className="text-[10px]"
+                          className="text-[12px]"
                           style={{ color: 'var(--foreground)', opacity: 0.8 }}
                         >
                           {step.aiRole}
