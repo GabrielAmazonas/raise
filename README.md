@@ -4,7 +4,7 @@ A framework for integrating high-performance AI agents into regulated software e
 
 **Version:** 0.1  
 **Release Date:** 2025-07-07  
-**DOI:** (Pending)
+**DOI:** [10.5281/zenodo.18403268](https://doi.org/10.5281/zenodo.18403268)
 
 ## Abstract
 
