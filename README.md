@@ -186,6 +186,15 @@ coverageThreshold: {
 
 ## Getting Started
 
+### Using Docker (Recommended for Reviewers)
+
+```bash
+docker build -t raise .
+docker run -p 3000:3000 raise
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+
 ### Development Server
 
 ```bash
