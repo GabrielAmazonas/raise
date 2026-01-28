@@ -1,4 +1,4 @@
-# RAISE - Research-Driven AI-First Software Engineering
+# RAISE: A Research-Driven, AI-First Software Engineering Framework for High-Compliance Environments
 
 A framework for integrating high-performance AI agents into regulated software environments.
 
@@ -65,28 +65,28 @@ The Software Development Lifecycle (SDLC) is divided into three distinct phases,
 
 ```mermaid
 flowchart TD
-    A[👤 Human: Research-Driven Requirements\nBusiness Hypotheses Input] --> DaC[📄 DaC: Document-as-Code\nPRD, RFC, ADR Artifacts]
-    DaC --> B{🎯 Strategic Layer\nLarge Reasoning Model}
+    A[👤 Human: Research-Driven Requirements<br/>Business Hypotheses Input] --> DaC[📄 DaC: Document-as-Code<br/>PRD, RFC, ADR Artifacts]
+    DaC --> B{🎯 Strategic Layer<br/>Large Reasoning Model}
 
-    B --> C[👤 Human: Research AI-Tools\nContextual Injection]
-    C --> D{🤖 Execution Layer\nHigh-Context Coding Model}
+    B --> C[👤 Human: Research AI-Tools<br/>Contextual Injection]
+    C --> D{🤖 Execution Layer<br/>High-Context Coding Model}
 
-    D --> E[🔄 Code Implementation\nRules of Engagement]
-    E --> F[👤 Human: Research-Enhanced Review\nQuality Agent Validation]
+    D --> E[🔄 Code Implementation<br/>Rules of Engagement]
+    E --> F[👤 Human: Research-Enhanced Review<br/>Quality Agent Validation]
 
     F --> G{Quality Gate}
-    G -->|Needs refinement| H[🤖 Cross-Model Validation\nAdversarial Review]
-    H --> I[👤 Human: Architectural Decisions\nMethodology Innovation]
+    G -->|Needs refinement| H[🤖 Cross-Model Validation<br/>Adversarial Review]
+    H --> I[👤 Human: Architectural Decisions<br/>Methodology Innovation]
     I --> D
 
     G -->|Approved| J[✅ Policy-as-Code Pipeline]
-    J --> K[🤖 Automated Quality Gates\nLinting, Testing, Type Safety]
+    J --> K[🤖 Automated Quality Gates<br/>Linting, Testing, Type Safety]
 
-    K --> L{Governance Layer\nLong-Context Infrastructure Agent}
-    L --> M[📊 Token Cost Analysis\nEconomic Optimization]
-    M --> N[🚀 Deployment & IaC\nDocumentation Updates]
+    K --> L{Governance Layer<br/>Long-Context Infrastructure Agent}
+    L --> M[📊 Token Cost Analysis<br/>Economic Optimization]
+    M --> N[🚀 Deployment & IaC<br/>Documentation Updates]
 
-    N --> O[👤 Human: Research-Driven Optimization\nWorkflow Performance Review]
+    N --> O[👤 Human: Research-Driven Optimization<br/>Workflow Performance Review]
     O --> A
 
     style A fill:#e1f5fe
