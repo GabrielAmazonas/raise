@@ -114,18 +114,23 @@ describe('CommunityReferenceCard', () => {
     expect(descriptionElement).toHaveClass('text-gray-600', 'mb-4', 'text-sm');
   });
 
-  it('applies responsive height classes to image container', () => {
+  it('applies aspect-video and overflow to image container', () => {
     render(<CommunityReferenceCard reference={mockReference} />);
 
     const imageContainer =
       screen.getByAltText('Test Person post').parentElement;
-    expect(imageContainer).toHaveClass('h-48', 'sm:h-56', 'md:h-64');
+    expect(imageContainer).toHaveClass(
+      'relative',
+      'aspect-video',
+      'bg-gray-100',
+      'overflow-hidden'
+    );
   });
 
-  it('applies responsive object-fit classes to image', () => {
+  it('applies object-contain to image', () => {
     render(<CommunityReferenceCard reference={mockReference} />);
 
     const image = screen.getByAltText('Test Person post');
-    expect(image).toHaveClass('object-contain', 'sm:object-cover');
+    expect(image).toHaveClass('object-contain');
   });
 });

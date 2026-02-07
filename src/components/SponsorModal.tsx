@@ -42,8 +42,10 @@ export default function SponsorModal() {
     setIsVisible(false);
   };
 
-  const handleSponsorClick = () => {
-    window.open('https://buy.stripe.com/aFaeVd6A2aK2gT8dXT1RC03', '_blank');
+  const RESEARCH_URL = 'https://doi.org/10.5281/zenodo.18519189';
+
+  const handleResearchClick = () => {
+    window.open(RESEARCH_URL, '_blank');
     handleClose();
   };
 
@@ -75,16 +77,16 @@ export default function SponsorModal() {
           </h2>
 
           <p className="text-foreground mb-6 text-sm leading-relaxed">
-            Thanks for returning to RAISE! If you find this project valuable,
-            consider becoming a sponsor to help keep it growing and improving.
+            Thanks for returning to RAISE! Read the framework paper and
+            reference implementation on Zenodo.
           </p>
 
           <div className="space-y-4">
             <button
-              onClick={handleSponsorClick}
+              onClick={handleResearchClick}
               className="w-full bg-primary text-accent font-bold py-3 px-6 border-4 border-accent shadow-lg hover:bg-black hover:text-accent transition-colors"
             >
-              Sponsor this project ❤️
+              Read the research 📄
             </button>
 
             <button
