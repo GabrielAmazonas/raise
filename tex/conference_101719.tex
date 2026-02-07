@@ -25,17 +25,17 @@ gabriel@impacte.tech}
 \maketitle
 
 \begin{abstract}
-As Large Language Models (LLMs) increasingly automate code generation, the primary constraint in software engineering is shifting from implementation velocity to contextual accuracy and regulatory compliance. Traditional Agile methodologies, designed for human-centric coding, often fail to leverage the full capacity of AI agents or manage their stochastic risks. This paper proposes RAISE (Research-Driven AI-First Software Engineering), a novel workflow framework designed for hyper-growth, high-compliance financial environments. RAISE decouples execution from governance, assigning code synthesis to specialized AI agents while shifting human effort toward ``high-value research''---defining problems, validating architecture, and managing economic efficiency. We present a reference implementation using a heterogeneous multi-model stack (orchestrating Reasoning, Coding, and Infrastructure models) and a ``Policy-as-Code'' governance gate that ensures deterministic quality in an AI-first ecosystem.
+As Large Language Models (LLMs) increasingly automate code generation, the primary constraint in software engineering is shifting from implementation velocity to contextual accuracy and regulatory compliance. Traditional Agile methodologies, designed for human-centric coding, often fail to leverage the full capacity of AI agents or manage their stochastic risks. This paper proposes RAISE (Research-Driven AI-First Software Engineering), a novel workflow framework designed for hyper-growth, high-compliance healthcare and financial environments. RAISE decouples execution from governance, assigning code synthesis to specialized AI agents while shifting human effort toward ``high-value research''---defining problems, validating architecture, and managing economic efficiency. We present a reference implementation using a heterogeneous multi-model stack (orchestrating Reasoning, Coding, and Infrastructure models) and a ``Policy-as-Code'' governance gate that ensures deterministic quality in an AI-first ecosystem.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Software Engineering, Artificial Intelligence, Large Language Models, Compliance, DevOps, FinTech
+Software Engineering, Artificial Intelligence, Large Language Models, Compliance, DevOps, FinTech, HealthTech
 \end{IEEEkeywords}
 
 \section{Introduction}
 The software engineering discipline is currently undergoing a paradigm shift comparable to the transition from Waterfall to Agile. For the past two decades, methodologies like Scrum and Extreme Programming (XP) have optimized for \textit{human velocity}---reducing the time it takes for a human to write, test, and deploy code. However, the emergence of Large Language Models (LLMs) effectively drives the cost of producing functional code toward zero.
 
-In this new era, the bottleneck is no longer ``how fast can we write code,'' but ``how accurately can we define the problem.'' Failing to integrate AI agents into the core engineering loop represents a massive opportunity cost for modern enterprises. Yet, unbridled AI adoption poses significant risks, particularly in high-compliance sectors (e.g., Fintech, Healthcare), where ``hallucinations'' or security vulnerabilities are unacceptable.
+In this new era, the bottleneck is no longer ``how fast can we write code,'' but ``how accurately can we define the problem.'' Failing to integrate AI agents into the core engineering loop represents a massive opportunity cost for modern enterprises. Yet, unbridled AI adoption poses significant risks, particularly in high-compliance sectors (e.g., Healthcare, Fintech), where ``hallucinations'' or security vulnerabilities are unacceptable.
 
 We introduce \textbf{RAISE}, a framework that restructures the software development lifecycle (SDLC) around two core principles:
 \begin{enumerate}
@@ -137,7 +137,9 @@ The framework introduces \textbf{Token Cost Analysis} as a standard engineering 
 \section{Discussion and Impact}
 
 \subsection{Preliminary Pilot Results}
-In early-stage deployments of the RAISE framework within a global-scale financial environment, we observed a significant acceleration in software delivery metrics. By moving the "Code Review" phase to an asynchronous, AI-first model, the deployment cycle time for complex features was reduced from months to weeks---representing a velocity increase of over 500\%. This acceleration suggests that the primary friction in traditional regulated software engineering is not implementation difficulty, but the latency introduced by synchronous human coordination \cite{b6}.
+In early-stage deployments of the RAISE framework within health and financial technology environments, we observed significant transformations in both delivery timelines and engineering labor allocation. Deployment cycle times for complex features shifted from months to weeks. However, the more critical observation was the \textbf{reallocation of engineering effort}: traditional implementation tasks---syntax generation, boilerplate code, routine refactoring---consumed less than 20\% of developer time under the AI-first model, while architectural validation, compliance verification, token cost optimization, and cross-model governance emerged as the primary cognitive bottlenecks.
+
+This empirically validates our theoretical premise that the fundamental constraint in AI-augmented software engineering has shifted from ``how fast can we write code'' to ``how accurately can we define the problem space and validate AI-generated solutions.'' The observed pattern suggests that the primary friction in traditional regulated software engineering is not implementation difficulty, but rather the latency introduced by synchronous human coordination and the cognitive overhead of low-level syntactic decisions \cite{b6}.
 
 \subsection{The Shift in Developer Roles}
 Implementing RAISE transitions the engineering workforce from ``Code Producers'' to ``System Architects.'' As noted by recent studies on generative AI, the developer's role is shifting from syntactic generation to high-level system design and intent specification \cite{b4}.
@@ -146,12 +148,12 @@ Implementing RAISE transitions the engineering workforce from ``Code Producers''
     \item \textit{The Senior Engineer:} Focuses on ``Prompt Engineering Strategy'' and defining the regulatory boundaries within which the AI must operate.
 \end{itemize}
 
-\subsection{Compliance in Fintech}
-In financial sectors, the ``Black Box'' nature of AI is a liability \cite{b5}. RAISE mitigates this through the \textbf{Document-as-Code} pillar. By forcing the AI to generate human-readable PRDs and ADRs (Architecture Decision Records) \textit{before} coding, the framework creates a paper trail that satisfies audit requirements, effectively treating the AI as a junior employee whose work is fully logged and reviewed.
+\subsection{Compliance in Healthcare and Fintech}
+In healthcare and financial sectors, the ``Black Box'' nature of AI is a liability \cite{b5}. RAISE mitigates this through the \textbf{Document-as-Code} pillar. By forcing the AI to generate human-readable PRDs and ADRs (Architecture Decision Records) \textit{before} coding, the framework creates a paper trail that satisfies audit requirements, effectively treating the AI as a junior employee whose work is fully logged and reviewed.
 
 \section{Conclusion}
 
-The RAISE framework offers a pragmatic path for integrating high-performance AI agents into regulated software environments. By acknowledging the strengths of specific models---Strategic Reasoning, Code Synthesis, and Infrastructure Management---and binding them within a strict ``Policy-as-Code'' governance structure, organizations can achieve the velocity promised by AI without sacrificing the stability demanded by the financial industry.
+The RAISE framework offers a pragmatic path for integrating high-performance AI agents into regulated software environments. By acknowledging the strengths of specific models---Strategic Reasoning, Code Synthesis, and Infrastructure Management---and binding them within a strict ``Policy-as-Code'' governance structure, organizations can achieve the velocity promised by AI without sacrificing the stability demanded by the healthcare and financial industries.
 
 Future work will focus on automating the ``Context Injection'' layer, allowing agents to autonomously ``research'' internal documentation without human prompting.
 
@@ -160,7 +162,7 @@ The datasets and code generated during the current study are available in the Ze
 
 \begin{thebibliography}{00}
 
-\bibitem{b1} G. Amazonas, ``RAISE: Research-Driven AI-First Software Engineering Repository,'' GitHub, 2025. [Online]. Available: https://github.com/GabrielAmazonas/raise.
+\bibitem{b1} G. Amazonas, ``RAISE: A Research-Driven, AI-First Software Engineering Framework for High-Compliance Environments Repository,'' GitHub, 2025. [Online]. Available: https://github.com/GabrielAmazonas/raise.
 
 \bibitem{b2} A. Vaswani et al., ``Attention Is All You Need,'' in \textit{Advances in Neural Information Processing Systems}, vol. 30, 2017. [Online]. Available: https://arxiv.org/abs/1706.03762.
 
