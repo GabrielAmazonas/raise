@@ -1,10 +1,10 @@
-# RAISE - Research-Driven AI-First Software Engineering
+# RAISE: A Research-Driven, AI-First Software Engineering Framework for High-Compliance Environments
 
 A framework for integrating high-performance AI agents into regulated software environments.
 
 **Version:** 0.1  
 **Release Date:** 2025-07-07  
-**DOI:** [10.5281/zenodo.18403268](https://doi.org/10.5281/zenodo.18403268)
+**DOI:** [10.5281/zenodo.18519189](https://doi.org/10.5281/zenodo.18519189)
 
 ## Abstract
 
@@ -263,7 +263,7 @@ Future development will focus on automating the "Context Injection" layer, allow
 
 ## References
 
-1. G. Amazonas, "RAISE: Research-Driven AI-First Software Engineering Repository," GitHub, 2025. Available: https://github.com/GabrielAmazonas/raise
+1. G. Amazonas, "RAISE: A Research-Driven, AI-First Software Engineering Framework for High-Compliance Environments," Zenodo, 2026. Available: https://doi.org/10.5281/zenodo.18519189
 2. A. Vaswani et al., "Attention Is All You Need," in _Advances in Neural Information Processing Systems_, vol. 30, 2017. Available: https://arxiv.org/abs/1706.03762
 3. S. Maatouk et al., "Large Language Models (LLMs): Deployment, Tokenomics and Sustainability," Huawei, University of Ottawa, 2024. Available: https://arxiv.org/abs/2405.17147
 4. OpenAI et al., "Early science acceleration experiments with GPT-5," OpenAI, Harvard University, University of Cambridge, 2025. Available: https://arxiv.org/abs/2511.16072
