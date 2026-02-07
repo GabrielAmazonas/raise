@@ -60,12 +60,12 @@ describe('SponsorModal', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Welcome Back! 🎮')).toBeInTheDocument();
-      expect(screen.getByText('Sponsor this project ❤️')).toBeInTheDocument();
+      expect(screen.getByText('Read the research 📄')).toBeInTheDocument();
       expect(screen.getByText('Maybe later')).toBeInTheDocument();
     });
   });
 
-  it('should open Stripe link when sponsor button is clicked', async () => {
+  it('should open research link when research button is clicked', async () => {
     localStorageMock.getItem.mockReturnValue('1');
 
     render(<SponsorModal />);
@@ -76,11 +76,11 @@ describe('SponsorModal', () => {
     });
 
     await waitFor(() => {
-      const sponsorButton = screen.getByText('Sponsor this project ❤️');
-      fireEvent.click(sponsorButton);
+      const researchButton = screen.getByText('Read the research 📄');
+      fireEvent.click(researchButton);
 
       expect(mockOpen).toHaveBeenCalledWith(
-        'https://buy.stripe.com/aFaeVd6A2aK2gT8dXT1RC03',
+        'https://doi.org/10.5281/zenodo.18519189',
         '_blank'
       );
     });
