@@ -5,12 +5,16 @@ export default function Hero() {
     <section className="py-20" style={{ background: '#000' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="project-title text-4xl md:text-6xl font-bold mb-6">
-            RAISE - Research-Driven AI-First Software Engineering
+          <h1 className="project-title text-4xl md:text-6xl font-bold mb-2">
+            IMPACTE: An AI-First Software Engineering Framework
           </h1>
+          <p className="text-lg md:text-xl text-accent/90 mb-6 max-w-3xl mx-auto font-medium">
+            Intelligent Multi-Agent Product-Centric Architecture with
+            Cost-Efficiency and Trade-offs Engineering
+          </p>
           <p className="text-xl md:text-2xl text-accent mb-8 max-w-3xl mx-auto">
-            Supporting the Software Engineering community with research-driven
-            approaches to AI-first software engineering.
+            A product-oriented framework for healthcare and financial technology
+            environments.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

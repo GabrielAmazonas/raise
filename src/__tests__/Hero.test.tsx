@@ -7,7 +7,16 @@ describe('Hero', () => {
   it('renders main heading', () => {
     render(<Hero />);
     expect(
-      screen.getByText('RAISE - Research-Driven AI-First Software Engineering')
+      screen.getByText('IMPACTE: An AI-First Software Engineering Framework')
+    ).toBeInTheDocument();
+  });
+
+  it('renders subtitle', () => {
+    render(<Hero />);
+    expect(
+      screen.getByText(
+        /Intelligent Multi-Agent Product-Centric Architecture with Cost-Efficiency and Trade-offs Engineering/
+      )
     ).toBeInTheDocument();
   });
 

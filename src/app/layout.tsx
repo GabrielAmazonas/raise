@@ -15,17 +15,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://raise-engineering.com'),
-  title: 'RAISE - Research-Driven AI-First Software Engineering',
+  title: 'IMPACTE: An AI-First Software Engineering Framework',
   description:
-    'Supporting the Software Engineering community with research-driven approaches to AI-first software engineering. Created by Gabriel Amazonas.',
+    'Intelligent Multi-Agent Product-Centric Architecture with Cost-Efficiency and Trade-offs Engineering. A product-oriented, AI-first framework for healthcare and financial technology. Created by Gabriel Amazonas.',
   keywords: [
     'AI',
     'Software Engineering',
-    'Research',
+    'Product Engineering',
     'Gabriel Amazonas',
-    'RAISE',
+    'IMPACTE',
     'Machine Learning',
-    'Technology',
+    'FinTech',
+    'HealthTech',
+    'Compliance',
   ],
   authors: [{ name: 'Gabriel Amazonas' }],
   creator: 'Gabriel Amazonas',
@@ -35,16 +37,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://raise-engineering.com',
-    siteName: 'RAISE - Research-Driven AI-First Software Engineering',
-    title: 'RAISE - Research-Driven AI-First Software Engineering',
+    siteName: 'IMPACTE: An AI-First Software Engineering Framework',
+    title: 'IMPACTE: An AI-First Software Engineering Framework',
     description:
-      'Supporting the Software Engineering community with research-driven approaches to AI-first software engineering. Created by Gabriel Amazonas.',
+      'A framework for integrating high-performance AI agents into regulated healthcare and financial environments. Product-oriented, AI-first software engineering. Created by Gabriel Amazonas.',
     images: [
       {
-        url: '/raise-logo.webp', // Using RAISE logo as preview
+        url: '/raise-logo.webp',
         width: 1200,
         height: 630,
-        alt: 'RAISE - Research-Driven AI-First Software Engineering',
+        alt: 'IMPACTE: An AI-First Software Engineering Framework',
       },
     ],
   },
@@ -52,11 +54,9 @@ export const metadata: Metadata = {
   // Twitter Card tags
   twitter: {
     card: 'summary_large_image',
-    // site: '@your_twitter_handle', // Add your Twitter handle if you have one
-    // creator: '@your_twitter_handle', // Add your Twitter handle if you have one
-    title: 'RAISE - Research-Driven AI-First Software Engineering',
+    title: 'IMPACTE: An AI-First Software Engineering Framework',
     description:
-      'Supporting the Software Engineering community with research-driven approaches to AI-first software engineering.',
+      'A framework for integrating high-performance AI agents into regulated healthcare and financial environments. Product-oriented, AI-first software engineering.',
     images: ['/raise-logo.webp'],
   },
 
