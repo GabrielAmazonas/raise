@@ -1,4 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+./scripts/run-opencode-agent.sh policy "Policy-as-Code: validate staged changes for security, correctness, compliance, linting, testing, and type-safety blockers."
 
 npx lint-staged

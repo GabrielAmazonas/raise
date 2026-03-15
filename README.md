@@ -148,6 +148,180 @@ The framework introduces **Token Cost Analysis** as a candidate standard enginee
 - **Pre-Task Estimation:** Engineers would be encouraged to estimate token load before complex queries.
 - **Model Routing:** Routine tasks (documentation formatting) could be routed to lower-cost models, while complex architectural reasoning could be routed to specialized "Reasoning Models," with the aim of optimizing the return on compute spend.
 
+## OpenCode Multi-Agent Implementation
+
+The architecture above can be operationalized with OpenCode by assigning each SDLC checkpoint to a dedicated agent and wiring those agents to deterministic local git hooks.
+
+### Installation Requirements
+
+Before enabling local agent orchestration, install and configure OpenCode:
+
+1. **Install OpenCode CLI**
+   - `curl -fsSL https://opencode.ai/install | bash`
+   - Alternative: `npm install -g opencode-ai`
+
+2. **Configure a model provider (OpenRouter sample)**
+   - Run `opencode auth login` and select **OpenRouter**, or export `OPENROUTER_API_KEY`.
+   - Validate available models with `opencode models openrouter`.
+
+3. **Initialize project defaults**
+   - Run `opencode` and execute `/init` once in this repository.
+   - Keep generated project instructions (`AGENTS.md`) committed.
+
+4. **Version caveat (date reference)**
+   - OpenCode commands, docs URLs, and model IDs in this section are examples verified against available tooling on **2026-03-15**.
+   - Re-check availability with `opencode --version` and `opencode models` before rollout.
+
+### Agent Trigger Matrix
+
+| Agent                   | OpenCode Role                                          | Trigger                                             | Expected Output                                           |
+| ----------------------- | ------------------------------------------------------ | --------------------------------------------------- | --------------------------------------------------------- |
+| Strategist Agent        | PRD/RFC refinement (`task` with reasoning model)       | Manual invocation at feature start                  | Updated DaC artifacts (`docs/prd`, `docs/rfc`)            |
+| Builder Agent           | Feature implementation (`task` with coding model)      | Manual invocation after DaC approval                | Code + tests + changelog notes                            |
+| Quality Gate Agent      | Adversarial review (`task` with review-oriented model) | Every `git push` to branches starting with `feat/`  | Defect report + pass/fail recommendation                  |
+| Policy-as-Code Agent    | Rules validation (`task` with governance prompt)       | Every commit (local `pre-commit`)                   | Compliance report for style, tests, coverage, type checks |
+| Token Expense Estimator | Token economics (`task` with cost prompt)              | Every `git push` to `feat/` branches                | Incremental token delta + running branch total            |
+| Default Fallback Agent  | Safe baseline validation                               | Used automatically when specialized agent is absent | Generic governance check so hooks still enforce controls  |
+
+### How to Wire Triggers with OpenCode (Local-Only)
+
+1. **Create agents using OpenCode CLI**
+   - Use `opencode agent create` for each specialized agent.
+   - Save agents in project scope (`.opencode/agents/`) so the team shares the same orchestration.
+
+2. **Assign different models per agent (OpenRouter sample)**
+   - `strategist`: deeper reasoning model for PRD/RFC work.
+   - `builder`: coding-optimized model for implementation.
+   - `quality-gate` and `policy`: reliable review model with stricter permissions.
+   - `token-estimator`: lower-cost model for telemetry extraction.
+   - `default-fallback`: low-cost, always-available model.
+
+3. **Version all agent definitions**
+   - Keep `.opencode/agents/*.md` in git.
+   - Treat agent prompts as policy artifacts and review them like application code.
+
+4. **Run policy-as-code on every commit**
+   - Add a local `pre-commit` hook that invokes the Policy agent.
+   - If `policy.md` is missing, execute `default-fallback.md` automatically.
+
+5. **Run quality gate on pushes to `feat/` branches**
+   - Add a local `pre-push` hook that inspects the current branch name.
+   - Execute the Quality Gate Agent only when branch matches `feat/*`.
+   - If `quality-gate.md` is missing, execute `default-fallback.md`.
+
+6. **Track token cost incrementally on feature pushes**
+   - In the same local `pre-push` hook, run the Token Expense Estimator Agent.
+   - If `token-estimator.md` is missing, execute `default-fallback.md`.
+   - Persist results to a branch ledger (for example, `.ai-metrics/token-ledger.json`) with fields such as `branch`, `commit`, `prompt_tokens`, `completion_tokens`, `delta_cost_usd`, and `running_cost_usd`.
+
+### Example OpenCode Config (OpenRouter + Multi-Agent)
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openrouter/openai/gpt-4.1",
+  "provider": {
+    "openrouter": {}
+  },
+  "agent": {
+    "strategist": {
+      "description": "Refines PRD and RFC artifacts before implementation",
+      "mode": "all",
+      "model": "openrouter/anthropic/claude-3.7-sonnet"
+    },
+    "builder": {
+      "description": "Implements approved requirements with tests",
+      "mode": "all",
+      "model": "openrouter/openai/gpt-4.1"
+    },
+    "quality-gate": {
+      "description": "Runs adversarial review against regressions",
+      "mode": "all",
+      "model": "openrouter/anthropic/claude-3.7-sonnet",
+      "tools": {
+        "write": false,
+        "edit": false
+      }
+    },
+    "policy": {
+      "description": "Enforces deterministic policy-as-code checks",
+      "mode": "all",
+      "model": "openrouter/openai/gpt-4.1"
+    },
+    "token-estimator": {
+      "description": "Extracts token usage and branch-level cost deltas",
+      "mode": "all",
+      "model": "openrouter/openai/gpt-4o-mini"
+    },
+    "default-fallback": {
+      "description": "Fallback validation when specialized agents are unavailable",
+      "mode": "all",
+      "model": "openrouter/openai/gpt-4o-mini"
+    }
+  }
+}
+```
+
+### Example Local Hooks Blueprint (Enabled in This Repo)
+
+```bash
+# .husky/pre-commit
+./scripts/run-opencode-agent.sh policy "Policy-as-Code: validate current staged changes and report any blockers."
+npx lint-staged
+
+# .husky/pre-push
+set -eu
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+case "$branch" in
+  feat/*)
+    ./scripts/run-opencode-agent.sh quality-gate "Quality Gate: review delta from merge-base and fail on high-severity risks."
+    ./scripts/run-opencode-agent.sh token-estimator "Token Estimator: compute incremental token and USD delta for this branch push."
+    node scripts/update-token-ledger.cjs --branch "$branch"
+    ;;
+esac
+```
+
+Husky note: with Husky v9+ and `core.hooksPath=.husky/_`, these top-level hook files intentionally omit shebang/bootstrap lines to avoid deprecation warnings and v10 breakage.
+
+### Hook Installation Example
+
+```bash
+npm run prepare
+chmod +x .husky/pre-commit .husky/pre-push scripts/run-opencode-agent.sh scripts/update-token-ledger.cjs
+```
+
+### Token Ledger Example
+
+```json
+{
+  "entries": [
+    {
+      "branch": "feat/opencode-multi-agent-readme",
+      "commit": "abc123...",
+      "timestamp": "2026-03-15T14:10:00.000Z",
+      "prompt_tokens": 730,
+      "completion_tokens": 280,
+      "delta_cost_usd": 0.0024,
+      "running_cost_usd": 0.0189,
+      "source": "local-pre-push"
+    }
+  ]
+}
+```
+
+This combination keeps all triggers local and resilient: policy checks on each commit, quality and token economics on each push to `feat/*`, and automatic fallback to a default OpenCode agent when specialized agents are not defined.
+
+### OpenCode Docs References
+
+- The links below are example documentation entry points, validated on 2026-03-15; check current paths in the latest docs index if any URL changes.
+- Intro and installation: https://opencode.ai/docs/
+- Agent configuration and creation: https://opencode.ai/docs/agents/
+- CLI reference (`opencode agent create`, `opencode run --agent`): https://opencode.ai/docs/cli/
+- Provider setup (including OpenRouter): https://opencode.ai/docs/providers/
+- Configuration schema (`opencode.json`): https://opencode.ai/docs/config/
+
 ## Reference Implementation
 
 This repository demonstrates IMPACTE principles using a modern web technology stack. The principles remain agnostic to the underlying technology.
@@ -272,6 +446,7 @@ Future work will focus on exploring the automation of the "Context Injection" la
 6. P. Ralph et al., "Generative AI and Empirical Software Engineering: A Paradigm Shift," _arXiv preprint arXiv:2502.08108_, 2025.
 7. "10 Benefits and 10 Challenges of Applying Large Language Models to Software Acquisition," _Software Engineering Institute (SEI) Blog_, Carnegie Mellon University, 2024.
 8. "An Empirical Study on Challenges for LLM Application Developers," _arXiv preprint arXiv:2408.05002_, 2024.
+9. Anomaly, "OpenCode Documentation," 2026. Available: https://opencode.ai/docs/
 
 ## License
 
