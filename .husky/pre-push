@@ -1,0 +1,11 @@
+set -eu
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+case "$branch" in
+  feat/*)
+    ./scripts/run-opencode-agent.sh quality-gate "Quality Gate: review branch changes and fail if there are high-severity defects or compliance violations."
+    ./scripts/run-opencode-agent.sh token-estimator "Token Estimator: estimate incremental token usage and cost for this push and report compact metrics."
+    node ./scripts/update-token-ledger.cjs --branch "$branch"
+    ;;
+esac
