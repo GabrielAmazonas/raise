@@ -30,6 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# local hook runtime logs
+.ai-metrics/hook-logs/
+
 # env files (can opt-in for committing if needed)
 .env*
 
