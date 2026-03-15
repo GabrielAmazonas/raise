@@ -1,7 +1,7 @@
 ---
 description: Token and cost delta estimator for feature branch pushes
 mode: all
-model: openrouter/openai/gpt-5-mini
+model: openrouter/openai/gpt-4o-mini
 temperature: 0.1
 ---
 

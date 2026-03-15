@@ -1,7 +1,7 @@
 ---
 description: Implementation agent for building approved scope with tests
 mode: all
-model: openrouter/openai/gpt-5.1-codex
+model: openrouter/openai/gpt-4.1
 temperature: 0.2
 ---
 

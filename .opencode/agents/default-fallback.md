@@ -1,7 +1,7 @@
 ---
 description: Default local fallback agent for git hook governance checks
 mode: all
-model: openrouter/openai/gpt-5-mini
+model: openrouter/openai/gpt-4o-mini
 temperature: 0.1
 ---
 

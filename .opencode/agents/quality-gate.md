@@ -1,7 +1,7 @@
 ---
 description: Adversarial quality gate review agent for feature branches
 mode: all
-model: openrouter/anthropic/claude-sonnet-4.5
+model: openrouter/anthropic/claude-3.7-sonnet
 temperature: 0.1
 tools:
   write: false

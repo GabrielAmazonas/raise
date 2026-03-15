@@ -168,6 +168,10 @@ Before enabling local agent orchestration, install and configure OpenCode:
    - Run `opencode` and execute `/init` once in this repository.
    - Keep generated project instructions (`AGENTS.md`) committed.
 
+4. **Version caveat (date reference)**
+   - OpenCode commands, docs URLs, and model IDs in this section are examples verified against available tooling on **2026-03-15**.
+   - Re-check availability with `opencode --version` and `opencode models` before rollout.
+
 ### Agent Trigger Matrix
 
 | Agent                   | OpenCode Role                                          | Trigger                                             | Expected Output                                           |
@@ -215,7 +219,7 @@ Before enabling local agent orchestration, install and configure OpenCode:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "openrouter/openai/gpt-5.1-codex",
+  "model": "openrouter/openai/gpt-4.1",
   "provider": {
     "openrouter": {}
   },
@@ -223,17 +227,17 @@ Before enabling local agent orchestration, install and configure OpenCode:
     "strategist": {
       "description": "Refines PRD and RFC artifacts before implementation",
       "mode": "all",
-      "model": "openrouter/anthropic/claude-sonnet-4.5"
+      "model": "openrouter/anthropic/claude-3.7-sonnet"
     },
     "builder": {
       "description": "Implements approved requirements with tests",
       "mode": "all",
-      "model": "openrouter/openai/gpt-5.1-codex"
+      "model": "openrouter/openai/gpt-4.1"
     },
     "quality-gate": {
       "description": "Runs adversarial review against regressions",
       "mode": "all",
-      "model": "openrouter/anthropic/claude-sonnet-4.5",
+      "model": "openrouter/anthropic/claude-3.7-sonnet",
       "tools": {
         "write": false,
         "edit": false
@@ -242,17 +246,17 @@ Before enabling local agent orchestration, install and configure OpenCode:
     "policy": {
       "description": "Enforces deterministic policy-as-code checks",
       "mode": "all",
-      "model": "openrouter/openai/gpt-5.1-codex"
+      "model": "openrouter/openai/gpt-4.1"
     },
     "token-estimator": {
       "description": "Extracts token usage and branch-level cost deltas",
       "mode": "all",
-      "model": "openrouter/openai/gpt-5-mini"
+      "model": "openrouter/openai/gpt-4o-mini"
     },
     "default-fallback": {
       "description": "Fallback validation when specialized agents are unavailable",
       "mode": "all",
-      "model": "openrouter/openai/gpt-5-mini"
+      "model": "openrouter/openai/gpt-4o-mini"
     }
   }
 }
@@ -279,6 +283,8 @@ case "$branch" in
 esac
 ```
 
+Husky note: with Husky v9+ and `core.hooksPath=.husky/_`, these top-level hook files intentionally omit shebang/bootstrap lines to avoid deprecation warnings and v10 breakage.
+
 ### Hook Installation Example
 
 ```bash
@@ -286,10 +292,30 @@ npm run prepare
 chmod +x .husky/pre-commit .husky/pre-push scripts/run-opencode-agent.sh scripts/update-token-ledger.cjs
 ```
 
+### Token Ledger Example
+
+```json
+{
+  "entries": [
+    {
+      "branch": "feat/opencode-multi-agent-readme",
+      "commit": "abc123...",
+      "timestamp": "2026-03-15T14:10:00.000Z",
+      "prompt_tokens": 730,
+      "completion_tokens": 280,
+      "delta_cost_usd": 0.0024,
+      "running_cost_usd": 0.0189,
+      "source": "local-pre-push"
+    }
+  ]
+}
+```
+
 This combination keeps all triggers local and resilient: policy checks on each commit, quality and token economics on each push to `feat/*`, and automatic fallback to a default OpenCode agent when specialized agents are not defined.
 
 ### OpenCode Docs References
 
+- The links below are example documentation entry points, validated on 2026-03-15; check current paths in the latest docs index if any URL changes.
 - Intro and installation: https://opencode.ai/docs/
 - Agent configuration and creation: https://opencode.ai/docs/agents/
 - CLI reference (`opencode agent create`, `opencode run --agent`): https://opencode.ai/docs/cli/
