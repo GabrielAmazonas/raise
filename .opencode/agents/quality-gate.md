@@ -1,7 +1,7 @@
 ---
 description: Adversarial quality gate review agent for feature branches
 mode: all
-model: openrouter/anthropic/claude-3.7-sonnet
+model: lmstudio/qwen/qwen3.5-35b-a3b
 temperature: 0.1
 tools:
   write: false
