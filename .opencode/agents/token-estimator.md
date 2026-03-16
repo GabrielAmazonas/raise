@@ -1,7 +1,7 @@
 ---
 description: Token and cost delta estimator for feature branch pushes
 mode: all
-model: openrouter/qwen/qwen3-coder-next
+model: openrouter/qwen/qwen-2.5-coder-32b-instruct
 temperature: 0.1
 ---
 
