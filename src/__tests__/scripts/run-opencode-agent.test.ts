@@ -33,6 +33,10 @@ describe('run-opencode-agent.sh', () => {
     tempDir = mkdtempSync(join(tmpdir(), 'run-opencode-agent-'));
     mkdirSync(join(tempDir, '.opencode', 'agents'), { recursive: true });
     writeFileSync(join(tempDir, '.opencode', 'agents', 'policy.md'), 'policy');
+    writeFileSync(
+      join(tempDir, '.opencode', 'agents', 'token-estimator.md'),
+      'token-estimator'
+    );
 
     const binDir = join(tempDir, 'bin');
     mkdirSync(binDir, { recursive: true });
@@ -81,5 +85,40 @@ describe('run-opencode-agent.sh', () => {
 
     expect(result.status).toBe(0);
     expect(result.stderr).not.toContain('OpenCode gate blocked');
+  });
+
+  it('extracts CLI telemetry into .ai-metrics/token-estimate.json for token-estimator', () => {
+    const jsonEvents = [
+      '{"type":"step_start","sessionID":"ses_test_123","part":{"type":"step-start"}}',
+      '{"type":"text","sessionID":"ses_test_123","part":{"text":"{\\"prompt_tokens\\":123,\\"completion_tokens\\":45,\\"delta_cost_usd\\":0.006}"}}',
+      '{"type":"step_finish","sessionID":"ses_test_123","part":{"cost":0.006,"tokens":{"input":123,"output":45}}}',
+    ].join('\n');
+
+    const result = spawnSync(
+      'bash',
+      [scriptPath, 'token-estimator', 'extract telemetry'],
+      {
+        cwd: tempDir,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: `${join(tempDir, 'bin')}:${process.env.PATH || ''}`,
+          OPENCODE_MOCK_OUTPUT: jsonEvents,
+          OPENCODE_MOCK_EXIT: '0',
+        },
+      }
+    );
+
+    expect(result.status).toBe(0);
+
+    const payload = JSON.parse(
+      readFileSync(join(tempDir, '.ai-metrics', 'token-estimate.json'), 'utf8')
+    );
+
+    expect(payload.prompt_tokens).toBe(123);
+    expect(payload.completion_tokens).toBe(45);
+    expect(payload.delta_cost_usd).toBe(0.006);
+    expect(payload.session_id).toBe('ses_test_123');
+    expect(payload.source).toBe('opencode-run-json');
   });
 });

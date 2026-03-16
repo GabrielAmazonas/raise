@@ -34,12 +34,83 @@ clean_output_file="$(mktemp)"
 trap 'rm -f "$raw_output_file" "$clean_output_file"' EXIT
 
 set +e
-env -u OPENCODE -u OPENCODE_PID -u OPENCODE_CLIENT -u OPENCODE_SERVER_PASSWORD -u OPENCODE_SERVER_USERNAME \
-  opencode run --agent "$selected_agent" "$prompt" | tee "$raw_output_file"
-opencode_status=${PIPESTATUS[0]}
+if [[ "$selected_agent" == "token-estimator" ]]; then
+  env -u OPENCODE -u OPENCODE_PID -u OPENCODE_CLIENT -u OPENCODE_SERVER_PASSWORD -u OPENCODE_SERVER_USERNAME \
+    opencode run --agent "$selected_agent" --format json "$prompt" >"$raw_output_file"
+  opencode_status=$?
+else
+  env -u OPENCODE -u OPENCODE_PID -u OPENCODE_CLIENT -u OPENCODE_SERVER_PASSWORD -u OPENCODE_SERVER_USERNAME \
+    opencode run --agent "$selected_agent" "$prompt" | tee "$raw_output_file"
+  opencode_status=${PIPESTATUS[0]}
+fi
 set -e
 
-perl -pe 's/\e\[[0-9;]*[A-Za-z]//g' "$raw_output_file" >"$clean_output_file"
+if [[ "$selected_agent" == "token-estimator" ]]; then
+  token_metrics_file=".ai-metrics/token-estimate.json"
+  mkdir -p ".ai-metrics"
+
+  node - "$raw_output_file" "$clean_output_file" "$token_metrics_file" <<'NODE'
+const fs = require('node:fs');
+
+const rawPath = process.argv[2];
+const cleanPath = process.argv[3];
+const metricsPath = process.argv[4];
+
+const raw = fs.readFileSync(rawPath, 'utf8');
+const lines = raw
+  .split(/\r?\n/)
+  .map(line => line.trim())
+  .filter(Boolean);
+
+const textParts = [];
+let sessionId = '';
+let inputTokens = 0;
+let outputTokens = 0;
+let cost = 0;
+
+for (const line of lines) {
+  let event;
+  try {
+    event = JSON.parse(line);
+  } catch {
+    continue;
+  }
+
+  if (typeof event.sessionID === 'string' && event.sessionID.length > 0) {
+    sessionId = event.sessionID;
+  }
+
+  if (event.type === 'text' && typeof event.part?.text === 'string') {
+    textParts.push(event.part.text);
+  }
+
+  if (event.type === 'step_finish' && event.part?.tokens) {
+    inputTokens = Number(event.part.tokens.input || 0);
+    outputTokens = Number(event.part.tokens.output || 0);
+    cost = Number(event.part.cost || 0);
+  }
+}
+
+const cleanOutput = textParts.join('\n').trim();
+fs.writeFileSync(cleanPath, cleanOutput ? `${cleanOutput}\n` : '', 'utf8');
+
+if (cleanOutput) {
+  process.stdout.write(`${cleanOutput}\n`);
+}
+
+const payload = {
+  prompt_tokens: Number.isFinite(inputTokens) ? inputTokens : 0,
+  completion_tokens: Number.isFinite(outputTokens) ? outputTokens : 0,
+  delta_cost_usd: Number.isFinite(cost) ? Number(cost.toFixed(6)) : 0,
+  session_id: sessionId,
+  source: 'opencode-run-json',
+};
+
+fs.writeFileSync(metricsPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+NODE
+else
+  perl -pe 's/\e\[[0-9;]*[A-Za-z]//g' "$raw_output_file" >"$clean_output_file"
+fi
 
 log_dir=".ai-metrics/hook-logs"
 mkdir -p "$log_dir"
