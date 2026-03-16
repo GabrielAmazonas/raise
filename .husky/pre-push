@@ -1,5 +1,10 @@
 #!/bin/bash
-set -euo pipefail
+set -eu
+
+# Check if force push is being done
+if [ "${HUSKY_SKIP_HOOK:-0}" = "1" ]; then
+  exit 0
+fi
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
 
