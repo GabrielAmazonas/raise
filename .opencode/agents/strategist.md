@@ -1,7 +1,7 @@
 ---
 description: Strategic planning agent for PRD and RFC refinement
 mode: all
-model: lmstudio/qwen/qwen3.5-35b-a3b
+model: openrouter/google/gemini-2.5-pro
 temperature: 0.2
 ---
 

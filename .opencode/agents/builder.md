@@ -1,7 +1,7 @@
 ---
 description: Implementation agent for building approved scope with tests
 mode: all
-model: lmstudio/qwen/qwen3.5-35b-a3b
+model: openrouter/anthropic/claude-sonnet-4.5
 temperature: 0.2
 ---
 
