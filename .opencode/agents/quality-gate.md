@@ -1,7 +1,7 @@
 ---
 description: Adversarial quality gate review agent for feature branches
 mode: all
-model: lmstudio/qwen/qwen3.5-35b-a3b
+model: openrouter/qwen/qwen-2.5-coder-32b-instruct
 temperature: 0.1
 tools:
   write: false

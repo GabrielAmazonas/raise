@@ -1,4 +1,10 @@
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -132,5 +138,45 @@ describe('update-token-ledger.cjs', () => {
     expect(ledger.entries).toHaveLength(2);
     expect(ledger.entries[1].delta_cost_usd).toBe(0.5);
     expect(ledger.entries[1].running_cost_usd).toBe(2);
+  });
+
+  it('uses OpenCode CLI telemetry file when token env vars are not provided', () => {
+    mkdirSync(join(tempRepo, '.ai-metrics'), { recursive: true });
+    writeFileSync(
+      join(tempRepo, '.ai-metrics', 'token-estimate.json'),
+      JSON.stringify(
+        {
+          prompt_tokens: 321,
+          completion_tokens: 111,
+          delta_cost_usd: 0.009,
+          session_id: 'ses_from_cli',
+          source: 'opencode-run-json',
+        },
+        null,
+        2
+      ) + '\n'
+    );
+
+    const result = spawnSync(
+      'node',
+      [ledgerScriptPath, '--branch', 'feat/telemetry'],
+      {
+        cwd: tempRepo,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+        },
+      }
+    );
+
+    expect(result.status).toBe(0);
+
+    const ledger = readLedger(tempRepo);
+    expect(ledger.entries).toHaveLength(1);
+    expect(ledger.entries[0].prompt_tokens).toBe(321);
+    expect(ledger.entries[0].completion_tokens).toBe(111);
+    expect(ledger.entries[0].delta_cost_usd).toBe(0.009);
+    expect(ledger.entries[0].telemetry_session_id).toBe('ses_from_cli');
+    expect(ledger.entries[0].telemetry_source).toBe('opencode-run-json');
   });
 });

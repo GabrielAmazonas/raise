@@ -1,7 +1,7 @@
 ---
 description: Default local fallback agent for git hook governance checks
 mode: all
-model: lmstudio/qwen/qwen3.5-35b-a3b
+model: openrouter/anthropic/claude-sonnet-4.5
 temperature: 0.1
 ---
 
