@@ -31,8 +31,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local hook runtime logs
-.ai-metrics/hook-logs/
-.ai-metrics/token-ledger.json
+.ai-metrics/
 
 # env files (can opt-in for committing if needed)
 .env*

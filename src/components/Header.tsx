@@ -24,7 +24,7 @@ export default function Header() {
               href="/"
               className="logo text-sm sm:text-base md:text-lg lg:text-xl font-bold logo-text"
             >
-              RAISE
+              IMPACTE - AI SWE
             </Link>
           </div>
           {/* Desktop Navigation */}

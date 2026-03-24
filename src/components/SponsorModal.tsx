@@ -77,8 +77,8 @@ export default function SponsorModal() {
           </h2>
 
           <p className="text-foreground mb-6 text-sm leading-relaxed">
-            Thanks for returning to RAISE! Read the framework paper and
-            reference implementation on Zenodo.
+            Thanks for returning! Read the framework paper and reference
+            implementation on Zenodo.
           </p>
 
           <div className="space-y-4">

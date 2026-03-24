@@ -1,7 +1,7 @@
 ---
 description: Implementation agent for building approved scope with tests
 mode: all
-model: openrouter/openai/gpt-4.1
+model: lmstudio/qwen/qwen3.5-35b-a3b
 temperature: 0.2
 ---
 

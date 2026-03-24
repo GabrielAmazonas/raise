@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+# Run opencode agent to validate staged changes only
 ./scripts/run-opencode-agent.sh policy "Policy-as-Code: validate staged changes for security, correctness, compliance, linting, testing, and type-safety blockers."
 
-npx lint-staged
+# Run lint-staged on staged files only (default behavior)
+npx lint-staged --diff HEAD
