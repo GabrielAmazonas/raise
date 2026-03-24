@@ -458,6 +458,6 @@ If you use IMPACTE in your research, please cite:
   title = {IMPACTE: An AI-First Software Engineering Framework. Intelligent Multi-Agent Product-Centric Architecture with Cost-Efficiency and Trade-offs Engineering},
   year = {2025},
   publisher = {GitHub},
-  url = {https://github.com/GabrielAmazonas/impacte}
+  url = {https://github.com/oamazonasgabriel}
 }
 ```
