@@ -12,21 +12,10 @@ export default function Hero() {
             Intelligent Multi-Agent Product-Centric Architecture with
             Cost-Efficiency and Trade-offs Engineering
           </p>
-          <p className="text-xl md:text-2xl text-accent mb-8 max-w-3xl mx-auto">
-            A product-oriented framework for healthcare and financial technology
-            environments.
-          </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://www.linkedin.com/in/gabriel-amazonas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
-            >
-              Get In Touch
-            </Link>
-            <Link
-              href="https://github.com/gabrielamazonas/raise"
+              href="https://github.com/oamazonasgabriel"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"

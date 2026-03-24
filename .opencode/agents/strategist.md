@@ -1,7 +1,7 @@
 ---
 description: Strategic planning agent for PRD and RFC refinement
 mode: all
-model: lmstudio/qwen/qwen3.5-35b-a3b
+model: openrouter/anthropic/claude-3.7-sonnet
 temperature: 0.2
 ---
 

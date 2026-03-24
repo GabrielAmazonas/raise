@@ -1,7 +1,7 @@
 ---
 description: Token and cost delta estimator for feature branch pushes
 mode: all
-model: lmstudio/qwen/qwen3.5-35b-a3b
+model: openrouter/openai/gpt-4o-mini
 temperature: 0.1
 ---
 
