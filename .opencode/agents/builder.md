@@ -1,7 +1,7 @@
 ---
 description: Implementation agent for building approved scope with tests
 mode: all
-model: openrouter/openai/gpt-4.1
+model: openrouter/anthropic/claude-sonnet-4.5
 temperature: 0.2
 ---
 

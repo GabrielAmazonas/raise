@@ -34,7 +34,7 @@
       "temperature": 0.1
     },
     "token-estimator": {
-      "description": "Estimate token and cost deltas for feature pushes",
+      "description": "Extract token and cost deltas from OpenCode CLI telemetry",
       "mode": "all",
       "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.1

@@ -364,8 +364,8 @@ coverageThreshold: {
 ### Using Docker (Recommended for Reviewers)
 
 ```bash
-docker build -t raise .
-docker run -p 3000:3000 raise
+docker build -t impacte .
+docker run -p 3000:3000 impacte
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the application.
@@ -427,10 +427,6 @@ Adopting an IMPACTE-like approach could transition the engineering workforce fro
 
 - **The Junior Engineer:** Could focus on reviewing AI output and learning through "reverse engineering" the AI's solutions.
 - **The Senior Engineer:** Could focus on product architecture strategy, defining cost-efficiency trade-offs, researching up-to-date capabilities beyond training cutoffs, and establishing the regulatory boundaries within which the AI would operate.
-
-### Compliance in Healthcare and Fintech
-
-In healthcare and financial sectors, the "Black Box" nature of AI is a liability. IMPACTE seeks to mitigate this through the **Document-as-Code** pillar. By encouraging the AI to generate human-readable PRDs and RFCs _before_ coding, the framework aims to create a paper trail that could satisfy audit requirements.
 
 ## Future Work
 

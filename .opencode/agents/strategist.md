@@ -1,7 +1,7 @@
 ---
 description: Strategic planning agent for PRD and RFC refinement
 mode: all
-model: openrouter/anthropic/claude-3.7-sonnet
+model: openrouter/google/gemini-2.5-pro
 temperature: 0.2
 ---
 

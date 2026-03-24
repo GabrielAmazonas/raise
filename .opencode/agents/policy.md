@@ -1,7 +1,7 @@
 ---
 description: Policy-as-code enforcement agent for commit-time checks
 mode: all
-model: openrouter/openai/gpt-4.1
+model: openrouter/qwen/qwen-2.5-coder-32b-instruct
 temperature: 0.1
 ---
 
