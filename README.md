@@ -400,7 +400,7 @@ npm run test:e2e
 ## Project Structure
 
 ```
-raise/
+impacte/
 ├── .ai-diary/           # Chain-of-Thought audit logs
 ├── .cursor/rules/       # Context-aware governance rules
 ├── .github/             # Quality agent configuration
