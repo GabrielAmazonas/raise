@@ -6,7 +6,7 @@ An evolving framework exploring the integration of high-performance AI agents in
 
 **Version:** 0.1  
 **Release Date:** 2025-07-07  
-**DOI:** [10.5281/zenodo.18519189](https://doi.org/10.5281/zenodo.18519188)
+**DOI:** [10.5281/zenodo.18519188](https://doi.org/10.5281/zenodo.18519188)
 
 ## Abstract
 
@@ -434,7 +434,7 @@ Future work will focus on exploring the automation of the "Context Injection" la
 
 ## References
 
-1. G. Amazonas, "IMPACTE: An AI-First Software Engineering Framework. Intelligent Multi-Agent Product-Centric Architecture with Cost-Efficiency and Trade-offs Engineering," Zenodo, 2026. Available: https://doi.org/10.5281/zenodo.18519189
+1. G. Amazonas, "IMPACTE: An AI-First Software Engineering Framework. Intelligent Multi-Agent Product-Centric Architecture with Cost-Efficiency and Trade-offs Engineering," Zenodo, 2026. Available: https://doi.org/10.5281/zenodo.18519188
 2. A. Vaswani et al., "Attention Is All You Need," in _Advances in Neural Information Processing Systems_, vol. 30, 2017. Available: https://arxiv.org/abs/1706.03762
 3. S. Maatouk et al., "Large Language Models (LLMs): Deployment, Tokenomics and Sustainability," Huawei, University of Ottawa, 2024. Available: https://arxiv.org/abs/2405.17147
 4. OpenAI et al., "Early science acceleration experiments with GPT-5," OpenAI, Harvard University, University of Cambridge, 2025. Available: https://arxiv.org/abs/2511.16072
