@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'IMPACTE: An AI-First Software Engineering Framework',
     title: 'IMPACTE: An AI-First Software Engineering Framework',
     description:
-      'A framework for integrating high-performance AI agents into regulated healthcare and financial environments. Product-oriented, AI-first software engineering. Created by Gabriel Amazonas.',
+      'A framework for integrating high-performance AI agents leveraging multiple models efficiently. Product-oriented, AI-first software engineering. Created by Gabriel Amazonas.',
     images: [
       {
         url: '/raise-logo.webp',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'IMPACTE: An AI-First Software Engineering Framework',
     description:
-      'A framework for integrating high-performance AI agents into regulated healthcare and financial environments. Product-oriented, AI-first software engineering.',
+      'A framework for integrating high-performance AI agents leveraging multiple models efficiently. Product-oriented, AI-first software engineering. Created by Gabriel Amazonas.',
     images: ['/raise-logo.webp'],
   },
 
