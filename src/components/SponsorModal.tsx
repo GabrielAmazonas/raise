@@ -42,7 +42,7 @@ export default function SponsorModal() {
     setIsVisible(false);
   };
 
-  const RESEARCH_URL = 'https://doi.org/10.5281/zenodo.18519189';
+  const RESEARCH_URL = 'https://doi.org/10.5281/zenodo.18519188';
 
   const handleResearchClick = () => {
     window.open(RESEARCH_URL, '_blank');

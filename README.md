@@ -6,7 +6,7 @@ An evolving framework exploring the integration of high-performance AI agents in
 
 **Version:** 0.1  
 **Release Date:** 2025-07-07  
-**DOI:** [10.5281/zenodo.18519189](https://doi.org/10.5281/zenodo.18519189)
+**DOI:** [10.5281/zenodo.18519189](https://doi.org/10.5281/zenodo.18519188)
 
 ## Abstract
 
